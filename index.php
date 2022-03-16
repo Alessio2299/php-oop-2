@@ -6,16 +6,16 @@
 
 
   $foods = [];
-  $foods[] = new Foods("crocchette", "foods", 5.99, 50 );
-  $foods[] = new Foods("bastoncini di carne", "foods", 1.10, 20);
+  $foods[] = new Foods("Crocchette", "Foods", 5.99, 0, "Royal Canin", "Riso e Salmone", "High");
+  $foods[] = new Foods("Bastoncini", "Foods", 1.10, 20, "Pedrigrex", "Meat", "Medium");
 
   $pesticides = [];
-  $pesticides[]= new Pesticides("antipulci" , "pesticides", 3.20, 5);
+  $pesticides[]= new Pesticides("Antipulci" , "Pesticides", 3.20, 5);
 
   $games= [];
-  $games[]= new Games("palla", "giochi", 2.70, 12);
-  $games[]= new Games("corda", "giochi", 3.20, 8);
-  $games[]= new Games("paperella", "giochi", 2.50, 20);
+  $games[]= new Games("Palla", "Giochi", 1.99, 12);
+  $games[]= new Games("Corda", "Giochi", 3.20, 8);
+  $games[]= new Games("Paperella", "Giochi", 2.50, 20);
 
   var_dump($pesticides);
   var_dump($foods);
