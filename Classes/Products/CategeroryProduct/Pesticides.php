@@ -6,15 +6,15 @@
     protected $brand;
     protected $size;
     protected $disponibility;
-    public function  __construct($_type, $_category, $_price, $_quantity, $_brand, $_size, $_disponibility){
+    public function  __construct($_type, $_category, $_price, $_quantity, $_brand, $_size){
       parent:: __construct($_type, $_category, $_price, $_quantity);
       $this->brand = $_brand;
       $this->size = $_size;
-      $this-> setDisponibility($_disponibility);
+      $this-> setDisponibility(date("m"));
     }
 
     public function setDisponibility($mounth){
-      if($mounth == "December" || $mounth == "November"){
+      if($mounth == 10 || $mounth == 11 || $mounth == 12){
         return $this->disponibility = "Avalaible";
       } else{
         return $this->disponibility = "Product non Avalaible";
