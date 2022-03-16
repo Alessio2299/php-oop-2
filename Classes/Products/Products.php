@@ -6,7 +6,6 @@ class Products{
   protected $category;
   protected $price = 0;
   protected $quantity = 0;
-  protected $discount = 0;
 
   public function __construct($_type, $_category, $_price, $_quantity){
     $this->type = $_type;

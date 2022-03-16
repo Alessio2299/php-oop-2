@@ -5,4 +5,8 @@
   class Games extends Products{
     
     protected $material;
+    public function  __construct($_type, $_category, $_price, $_quantity, $_material){
+      parent:: __construct($_type, $_category, $_price, $_quantity);
+      $this->material = $_material;
+    }
   }

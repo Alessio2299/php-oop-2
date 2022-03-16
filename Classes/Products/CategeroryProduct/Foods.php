@@ -11,6 +11,5 @@
       $this->brand = $_brand;
       $this->ingrediants = $_ingrediants;
       $this->quality = $_quality;
-
     }
   }
