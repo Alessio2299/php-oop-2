@@ -12,13 +12,4 @@ class Products{
     $this->type = $_type;
     $this->category = $_category;
   }
-
-  public function setProperty($property, $n){
-    $this->$property = $n;
-  }
-
-  public function setDiscount($_discount){
-    $this->discount = $_discount;
-  }
-
 }
