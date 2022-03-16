@@ -1,7 +1,6 @@
 <?php
 
   class CrediCard{
-
     protected $numberCard;
     protected $name;
     protected $surname;
@@ -18,16 +17,26 @@
       $this->name = $_name;
       $this->surname = $_surname;
 
-      if($_expiryCard > 3){
-        $this->expiryCard = $_expiryCard;
-      } else {
-        $this->expiryCard = "Expired Card";
-      }
+      $this-> setExpiryCard($_expiryCard);
 
       if(is_numeric($_codeCVV) && strlen($_codeCVV) == 3){
         $this->codeCVV = $_codeCVV;
       } else{
         $this->codeCVV = "Code CVV not Valid";
+      }
+
+    }
+    
+    public function setExpiryCard($_expiryCard){
+      $this->expiryCard = explode("-",$_expiryCard);
+      if($this->expiryCard[0] > date("d") && $this->expiryCard[1] >= date("m") && $this->expiryCard[2] >= date("Y")){
+        return $this->expiryCard = $_expiryCard;
+      } elseif($this->expiryCard[0] < date("d") && $this->expiryCard[1] > date("m") && $this->expiryCard[2] >= date("Y")){
+        return $this->expiryCard = $_expiryCard;
+      } elseif($this->expiryCard[0] < date("d") && $this->expiryCard[1] <= date("m") && $this->expiryCard[2] > date("Y")){
+        return $this->expiryCard = $_expiryCard;
+      } else{
+        return $this->expiryCard = "Expiry Card";
       }
     }
   }
