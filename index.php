@@ -9,9 +9,6 @@
   require_once __DIR__ . '/Classes/Cart/Cart.php';
 
 
-
-
-
   $foods = [];
   $foods[] = new Foods("Crocchette", "Foods", 8.99, 0, "Royal Canin", "Riso e Salmone", "High", true);
   $foods[] = new Foods("Bastoncini", "Foods", 1.10, 20, "Pedrigrex", "Meat", "Medium", false);
@@ -32,6 +29,8 @@
   $userRegistered= new Registered("Alessio2299", "Alessio", "Napoli", $card);
 
   $userNotRegistered= new NotRegistered($card);
+
+  
   $prodotti= array_merge($foods,$pesticides,$toys);
 
 
@@ -48,14 +47,14 @@
   $cart =new Cart($userRegistered, $ProductsCart, $total);
 
 
-  var_dump($cart);
+  echo "<h2>Prodotti</h2>";
   var_dump($prodotti);
-  var_dump($pesticides);
-  var_dump($foods);
-  var_dump($toys);
-  var_dump($card);
+  echo "<h2>Utente Registrato</h2>";
   var_dump($userRegistered);
+  echo "<h2>Utente Non Registrato</h2>";
   var_dump($userNotRegistered);
+  echo "<h2>Carta di Credito</h2>";
+  var_dump($card);
+  echo "<h2>Carrello Utente</h2>";
+  var_dump($cart);
 
-
-  
