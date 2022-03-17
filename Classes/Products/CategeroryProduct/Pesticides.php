@@ -14,7 +14,7 @@
     }
 
     public function setDisponibility($mounth){
-      if($mounth == 10 || $mounth == 11 || $mounth == 12){
+      if($mounth == 03 || $mounth == 11 || $mounth == 12){
         return $this->disponibility = "Avalaible";
       } else{
         return $this->disponibility = "Product non Avalaible";

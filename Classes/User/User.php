@@ -2,15 +2,20 @@
 
   class User{
 
+    public $registered = false;
     protected $creditCard;
-    protected $sale = 0;
+    public $sale = 0;
 
-    public function __construct($_creditCard, $_sale){
-      
-      $this->creditCard = $_creditCard;
-
-      if(is_numeric($_sale)){
-        $this->sale = $_sale;
+    public function __construct($_registered,$_creditCard,  $_username = "UNKNOWN", $_name = "UNKNOWN", $_lastname = "UNKNOWN"){
+      $this->registered = $_registered;
+      if($this->registered){
+        $this->name = $_name;
+        $this->lastname = $_lastname;
+        $this->username = $_username;
+        $this->sale = 20;
+      }else{
+        $this->sale = 0;
       }
+      $this->creditCard = $_creditCard;
     }
   }

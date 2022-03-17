@@ -21,9 +21,9 @@ class Cart{
   }
   public function setTotal($_total){
     if($this->user->registered){
-      return $this->total = $_total * 0.80;
+      $this->total = $_total * 0.80;
     } else{
-      return $this->total = $_total;
+      $this->total = $_total;
     }
   }
 }

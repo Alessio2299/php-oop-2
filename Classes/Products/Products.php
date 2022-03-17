@@ -14,8 +14,7 @@ class Products{
 
     $this->setPriceOrQuantity("price", $_price, "Free");
     $this->setPriceOrQuantity("quantity", $_quantity, "Product not available");
-    $this->cart = $_cart;
-
+    $this->setCart($_cart);
   }
   public function setPriceOrQuantity($property, $n, $message){
     if(is_numeric($n) && $n != 0){
@@ -24,6 +23,13 @@ class Products{
       return $this->$property = $message;
     }else{
       return $this->$property = "Contact the shop";
+    }
+  }
+  public function setCart($_cart){
+    if($this->quantity == 0 || (!is_numeric($this->price)) || isset($this->disponibility) == "Product non Avalaible"){
+      return $this->cart = false;
+    } else{
+      return $this->cart = $_cart;
     }
   }
 }
