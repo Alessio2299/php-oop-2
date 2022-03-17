@@ -25,7 +25,7 @@
   $card= new CrediCard(4032323475642, "Alessio", "Napoli", "08-09-2022", 333);
 
 
-  $userRegistered= new User(true, $card, "Alessio2299", "Alessio", "Napoli");
+  $userRegistered= new User(true, $card, "Pluto1234", "Pluto", "Paperino", "plutopaperino@gmail.com", "pippo222");
 
   $userNotRegistered= new User(false,$card);
 
