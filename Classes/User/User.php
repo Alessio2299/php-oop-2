@@ -7,9 +7,7 @@
 
     public function __construct($_creditCard, $_sale){
       
-      if($_creditCard == "/^4[0-9]{12}?$/"){
-        $this->creditCard = $_creditCard;
-      }
+      $this->creditCard = $_creditCard;
 
       if(is_numeric($_sale)){
         $this->sale = $_sale;

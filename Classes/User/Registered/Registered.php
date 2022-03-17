@@ -2,7 +2,8 @@
   require_once __DIR__ . '/../User.php';
   class Registered{
 
-    protected $sale = 20;
+    public $sale = 20;
+    public $registered = true;
     protected $name;
     protected $lastname;
     protected $username;

@@ -6,8 +6,8 @@
     protected $brand;
     protected $size;
     protected $disponibility;
-    public function  __construct($_type, $_category, $_price, $_quantity, $_brand, $_size){
-      parent:: __construct($_type, $_category, $_price, $_quantity);
+    public function  __construct($_type, $_category, $_price, $_quantity, $_brand, $_size, $_cart){
+      parent:: __construct($_type, $_category, $_price, $_quantity, $_cart);
       $this->brand = $_brand;
       $this->size = $_size;
       $this-> setDisponibility(date("m"));

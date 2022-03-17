@@ -2,7 +2,8 @@
   require_once __DIR__ . '/../User.php';
   class NotRegistered{
 
-    protected $sale = 0;
+    public $registered = false;
+    public $sale = 0;
     protected $creditCard;
 
     public function __construct($_creditCard){

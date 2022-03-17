@@ -2,44 +2,59 @@
 
   require_once __DIR__ . '/Classes/Products/CategeroryProduct/Foods.php';
   require_once __DIR__ . '/Classes/Products/CategeroryProduct/Pesticides.php';
-  require_once __DIR__ . '/Classes/Products/CategeroryProduct/Games.php';
+  require_once __DIR__ . '/Classes/Products/CategeroryProduct/Toys.php';
   require_once __DIR__ . '/Classes/Card/CreditCard.php';
   require_once __DIR__ . '/Classes/User/NotRegistered/NotRegistered.php';
   require_once __DIR__ . '/Classes/User/Registered/Registered.php';
+  require_once __DIR__ . '/Classes/Cart/Cart.php';
+
 
 
 
 
   $foods = [];
-  $foods[] = new Foods("Crocchette", "Foods", 8.99, 0, "Royal Canin", "Riso e Salmone", "High");
-  $foods[] = new Foods("Bastoncini", "Foods", 1.10, 20, "Pedrigrex", "Meat", "Medium");
+  $foods[] = new Foods("Crocchette", "Foods", 8.99, 0, "Royal Canin", "Riso e Salmone", "High", true);
+  $foods[] = new Foods("Bastoncini", "Foods", 1.10, 20, "Pedrigrex", "Meat", "Medium", false);
 
   $pesticides = [];
-  $pesticides[]= new Pesticides("Collare Antipulci" , "Pesticides", 3.20, 5, "FrontLine", "Small");
-  $pesticides[]= new Pesticides("Shampoo Antipulci" , "Pesticides", 5.20, 3, "Retinol Complex", "Medium");  
+  $pesticides[]= new Pesticides("Collare Antipulci" , "Pesticides", 3.20, 5, "FrontLine", "Small", true);
+  $pesticides[]= new Pesticides("Shampoo Antipulci" , "Pesticides", 5.20, 3, "Retinol Complex", "Medium", false);  
 
 
-  $games= [];
-  $games[]= new Games("Palla", "Games", 1.99, 12, "Gomma");
-  $games[]= new Games("Fune", "Games", 3.20, 8, "Corda");
-  $games[]= new Games("Paperella", "Games", 2.50, 20, "Gomma");
+  $toys= [];
+  $toys[]= new Toys("Palla", "Toys", 1.99, 12, "Gomma", false);
+  $toys[]= new Toys("Fune", "Toys", 3.20, 8, "Corda", false);
+  $toys[]= new Toys("Paperella", "Toys", 2.50, 20, "Gomma", true);
 
   $card= new CrediCard(4032323475642, "Alessio", "Napoli", "08-09-2022", 333);
 
 
-  $userRegisterd= [];
-  $userRegisterd[]= new Registered("Alessio2299", "Alessio", "Napoli", $card);
+  $userRegistered= new Registered("Alessio2299", "Alessio", "Napoli", $card);
 
-  $userNotRegistered= [];
-  $userNotRegistered[]= new NotRegistered($card);
+  $userNotRegistered= new NotRegistered($card);
+  $prodotti= array_merge($foods,$pesticides,$toys);
 
 
- 
+  $ProductsCart= [];
+  $total = 0;
+
+  foreach($prodotti as $prodotto){
+    if($prodotto->cart == true){
+      $ProductsCart[]= $prodotto;
+      $total += $prodotto->price;
+    }
+  }
+
+  $cart =new Cart($userRegistered, $ProductsCart, $total);
+
+
+  var_dump($cart);
+  var_dump($prodotti);
   var_dump($pesticides);
   var_dump($foods);
-  var_dump($games);
+  var_dump($toys);
   var_dump($card);
-  var_dump($userRegisterd);
+  var_dump($userRegistered);
   var_dump($userNotRegistered);
 
 
